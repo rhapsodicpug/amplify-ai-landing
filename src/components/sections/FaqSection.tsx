@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { HelpCircle } from "lucide-react";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { motion, AnimatePresence } from "framer-motion";
 
 const faqData = [
@@ -48,24 +47,25 @@ export const FaqSection = () => {
                 </div>
 
                 <Card className="mt-12 max-w-4xl mx-auto">
+                    {/* 👇 This grid is 1 column on mobile, and 4 columns on large screens */}
                     <CardContent className="p-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
                         {/* Left Column: Category Buttons */}
-                        <div className="flex flex-col gap-2 items-stretch">
+                        <div className="flex flex-row lg:flex-col gap-2 items-stretch overflow-x-auto lg:overflow-x-visible">
                             {faqData.map((cat) => (
                                 <Button
                                     key={cat.category}
                                     variant={activeCategory === cat.category ? "default" : "ghost"}
                                     onClick={() => setActiveCategory(cat.category)}
-                                    // 👇 Added size="lg" for more padding and increased font size
                                     size="lg"
-                                    className="justify-start text-lg font-semibold"
+                                    className="justify-start text-lg font-semibold flex-shrink-0" // flex-shrink-0 for mobile
                                 >
                                     {cat.category}
                                 </Button>
                             ))}
                         </div>
 
-                        {/* Right Column: Questions Accordion with Animation */}
+                        {/* Right Column: Questions Accordion */}
+                        {/* 👇 This column spans 3 of the 4 grid columns on large screens */}
                         <div className="lg:col-span-3">
                             <AnimatePresence mode="wait">
                                 <motion.div
@@ -88,8 +88,8 @@ export const FaqSection = () => {
                         </div>
                     </CardContent>
                     
-                    <CardFooter className="border-t p-6 flex items-center justify-between">
-                         <p className="text-muted-foreground">Can't find the answer you're looking for?</p>
+                    <CardFooter className="border-t p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                         <p className="text-muted-foreground text-center sm:text-left">Can't find the answer you're looking for?</p>
                          <Button>Contact Support</Button>
                     </CardFooter>
                 </Card>
