@@ -40,7 +40,7 @@ export const PricingSection = () => {
             <div className="container mx-auto">
                 <div className="text-center max-w-2xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold font-heading">Fair Pricing for Teams of All Sizes</h2>
-                    <p className="mt-4 text-muted-foreground">Choose the plan that's right for you. No hidden fees.</p>
+                    <p className="mt-4 text-muted-foreground">Choose the plan that&apos;s right for you. No hidden fees.</p>
                 </div>
 
                 <div className="flex justify-center items-center gap-4 mt-8">
@@ -73,14 +73,13 @@ export const PricingSection = () => {
                 </div>
 
                 <div className="mt-24">
-                    <h3 className="text-2xl md:text-4xl font-bold font-heading text-center">Compare All Features</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold font-heading text-center">Compare All Features</h3>
                     <div className="mt-8 overflow-x-auto">
                         <div className="grid grid-cols-4 items-center min-w-[800px] gap-x-8 gap-y-4">
-                            {/* 👇 Changed text-lg to text-xl */}
-                            <div className="font-semibold text-2xl">Features</div>
-                            <div className="font-semibold text-2xl text-center">Starter</div>
-                            <div className="font-semibold text-2xl text-center p-2 rounded-lg bg-primary/10">Pro</div>
-                            <div className="font-semibold text-2xl text-center">Enterprise</div>
+                            <div className="font-semibold text-xl">Features</div>
+                            <div className="font-semibold text-xl text-center">Starter</div>
+                            <div className="font-semibold text-xl text-center p-2 rounded-lg bg-primary/10">Pro</div>
+                            <div className="font-semibold text-xl text-center">Enterprise</div>
 
                             {featureComparisonData.map((item) => (
                                 <div key={item.feature} className="contents">

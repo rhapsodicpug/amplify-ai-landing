@@ -42,14 +42,12 @@ export const FaqSection = () => {
                 <div className="text-center max-w-2xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold font-heading">Frequently Asked Questions</h2>
                     <p className="mt-4 text-muted-foreground">
-                        Have questions? We've got answers. If you can't find what you're looking for, feel free to contact us.
+                        Have questions? We&apos;ve got answers. If you can&apos;t find what you&apos;re looking for, feel free to contact us.
                     </p>
                 </div>
 
                 <Card className="mt-12 max-w-4xl mx-auto">
-                    {/* 👇 This grid is 1 column on mobile, and 4 columns on large screens */}
                     <CardContent className="p-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
-                        {/* Left Column: Category Buttons */}
                         <div className="flex flex-row lg:flex-col gap-2 items-stretch overflow-x-auto lg:overflow-x-visible">
                             {faqData.map((cat) => (
                                 <Button
@@ -57,15 +55,13 @@ export const FaqSection = () => {
                                     variant={activeCategory === cat.category ? "default" : "ghost"}
                                     onClick={() => setActiveCategory(cat.category)}
                                     size="lg"
-                                    className="justify-start text-lg font-semibold flex-shrink-0" // flex-shrink-0 for mobile
+                                    className="justify-start text-lg font-semibold flex-shrink-0"
                                 >
                                     {cat.category}
                                 </Button>
                             ))}
                         </div>
 
-                        {/* Right Column: Questions Accordion */}
-                        {/* 👇 This column spans 3 of the 4 grid columns on large screens */}
                         <div className="lg:col-span-3">
                             <AnimatePresence mode="wait">
                                 <motion.div
@@ -89,7 +85,7 @@ export const FaqSection = () => {
                     </CardContent>
                     
                     <CardFooter className="border-t p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                         <p className="text-muted-foreground text-center sm:text-left">Can't find the answer you're looking for?</p>
+                         <p className="text-muted-foreground text-center sm:text-left">Can&apos;t find the answer you&apos;re looking for?</p>
                          <Button>Contact Support</Button>
                     </CardFooter>
                 </Card>

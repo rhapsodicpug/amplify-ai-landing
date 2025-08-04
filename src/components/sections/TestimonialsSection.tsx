@@ -4,9 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
 import Marquee from "react-fast-marquee";
 import { useTheme } from "next-themes";
-import Image from "next/image"; // Import the Next.js Image component
+import Image from "next/image";
 
-// 👇 NEW: Added an imageUrl property to each testimonial
 const testimonials = [
     { 
         quote: "Amplify AI has revolutionized our content workflow. We're producing higher quality content in half the time.", 
@@ -87,9 +86,8 @@ export const TestimonialsSection = () => {
                                 <CardContent className="p-6 flex flex-col justify-between h-full">
                                     <div>
                                         <Quote className="w-8 h-8 text-primary mb-4" />
-                                        <p className="italic text-lg">"{testimonial.quote}"</p>
+                                        <p className="italic text-lg">&quot;{testimonial.quote}&quot;</p>
                                     </div>
-                                    {/* 👇 NEW: Author section with photo */}
                                     <div className="flex items-center gap-4 mt-6">
                                         <Image
                                             src={testimonial.imageUrl}
@@ -116,9 +114,8 @@ export const TestimonialsSection = () => {
                                 <CardContent className="p-6 flex flex-col justify-between h-full">
                                     <div>
                                         <Quote className="w-8 h-8 text-primary mb-4" />
-                                        <p className="italic text-lg">"{testimonial.quote}"</p>
+                                        <p className="italic text-lg">&quot;{testimonial.quote}&quot;</p>
                                     </div>
-                                    {/* 👇 NEW: Author section with photo */}
                                     <div className="flex items-center gap-4 mt-6">
                                         <Image
                                             src={testimonial.imageUrl}
