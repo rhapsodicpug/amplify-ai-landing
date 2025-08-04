@@ -27,14 +27,14 @@ export const ConnectedScroll = () => {
     const featuresRotateY = useTransform(scrollYProgress, [0.5, 1], [-90, 0]);
     const featuresOpacity = useTransform(scrollYProgress, [0.5, 0.6], [0, 1]);
 
-    const gradientColor = theme === 'dark' ? "hsl(240 3.7% 15.9%)" : "hsl(240 4.8% 95.9%)";
+    // 👇 FIX 1: Use the correct background colors for the gradient
+    const gradientColor = theme === 'dark' ? "hsl(240 10% 3.9%)" : "hsl(0 0% 100%)";
 
     return (
         <div ref={containerRef} className="relative h-[200vh]">
             <div className="sticky top-0 h-screen" style={{ perspective: '1000px' }}>
                 
                 <motion.div
-                    // 👇 Add initial and animate props for the hero content's entrance
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
@@ -66,10 +66,11 @@ export const ConnectedScroll = () => {
                             Stop the guesswork. Amplify AI gives you the tools to create better content, faster.
                         </p>
                         <div className="mt-8 flex flex-col gap-4">
-                            <Marquee pauseOnHover speed={60} gradient gradientColor={gradientColor}>
+                            {/* 👇 FIX 2: Added the autoFill prop to both marquees */}
+                            <Marquee pauseOnHover speed={60} gradient gradientColor={gradientColor} autoFill>
                                 {firstRow.map((f, i) => <FeatureItem key={`top-${i}`} {...f} />)}
                             </Marquee>
-                            <Marquee pauseOnHover speed={60} gradient gradientColor={gradientColor} direction="right">
+                            <Marquee pauseOnHover speed={60} gradient gradientColor={gradientColor} direction="right" autoFill>
                                 {secondRow.map((f, i) => <FeatureItem key={`bottom-${i}`} {...f} />)}
                             </Marquee>
                         </div>
